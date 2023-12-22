@@ -1,0 +1,19 @@
+.landing-block {
+  width: 100%;
+  text-align: center;
+}
+
+.landing-links {
+  width: 100%;
+  text-align: center;
+}
+
+button {
+  font-size: 1em;
+}
+
+@media screen and (max-width: 996px) {
+  img {
+    width: 90%;
+  }
+}

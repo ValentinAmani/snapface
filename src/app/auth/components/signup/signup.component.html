@@ -1,0 +1,24 @@
+<div class="form-card">
+  <h1>Inscrption</h1>
+  <form [formGroup]="signupForm">
+    <div class="form-group">
+      <label for="userName">Nom d'utilisateur</label>
+      <input type="text" id="userName" formControlName="userName" />
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" id="email" formControlName="email" />
+    </div>
+    <div class="form-group">
+      <label for="password">Mot de passe</label>
+      <input type="password" id="password" formControlName="password" />
+    </div>
+    <div class="action-buttons">
+      <button (click)="onSignup()" [disabled]="isLoading || signupForm.invalid">
+        Inscription
+      </button>
+    </div>
+  </form>
+  <div></div>
+  <a routerLink="/auth/login">Se connecter</a>
+</div>

@@ -1,0 +1,23 @@
+<div class="loading" *ngIf="isLoading">Loading...</div>
+<div
+  class="face-snap-card"
+  *ngIf="faceSnap$ | async as faceSnap"
+  [ngClass]="{ snapped: buttonText === 'Unsnap !' }"
+>
+  <h1>{{ faceSnap.title | uppercase }}</h1>
+  <a routerLink="/facesnaps">Retour</a>
+  <p></p>
+  <p>
+    Publié le {{ faceSnap.createdAt | date : "dd/MM/yy, à HH:mm" }} par
+    {{ faceSnap.userId.userName | titlecase }}
+  </p>
+  <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title" />
+  <p>{{ faceSnap.description }}</p>
+  <p *ngIf="faceSnap.location">Lieu de la photo : {{ faceSnap.location }}</p>
+  <p>
+    <button (click)="onSnap(faceSnap._id)">{{ buttonText }}</button>
+    <span [ngStyle]="{ color: 'rgb(0,' + faceSnap.snaps * 200 + ',0)' }"
+      >👍🏿 {{ faceSnap.snaps }}</span
+    >
+  </p>
+</div>

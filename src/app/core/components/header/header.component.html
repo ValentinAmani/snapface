@@ -1,0 +1,26 @@
+<header>
+  <h1>snapface</h1>
+  <nav>
+    <a
+      routerLink=""
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Accueil</a
+    >
+    <a
+      routerLink="facesnaps"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >FaceSnaps</a
+    >
+    <a
+      *ngIf="isLogged || (isLoggedIn$ | async)"
+      routerLink="facesnaps/create"
+      routerLinkActive="active"
+      >New</a
+    >
+    <a *ngIf="isLogged || (isLoggedIn$ | async)" (click)="onLogout()"
+      >Déconnexion</a
+    >
+  </nav>
+</header>
